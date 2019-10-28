@@ -21,6 +21,7 @@
     (mapc load-it (directory-files dir nil "\\.el"))))
 
 (load-directory "~/.emacs.d/config")
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -31,7 +32,9 @@
     (("org" . "https://orgmode.org/elpa/")
      ("melpa" . "https://melpa.org/packages/")
      ("gnu" . "https://elpa.gnu.org/packages/"))))
- '(package-selected-packages (quote (ivy leaf-keywords leaf))))
+ '(package-selected-packages
+   (quote
+    (company-lsp lsp-ui lsp-mode golden-ratio solaire-mode rustic mood-line minions leaf-keywords flycheck evil doom-themes counsel company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
