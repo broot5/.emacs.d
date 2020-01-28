@@ -89,3 +89,5 @@
   :config
   (setq lsp-auto-configure t))
 
+(leaf magit
+  :ensure t)
