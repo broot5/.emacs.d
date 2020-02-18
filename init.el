@@ -21,3 +21,4 @@
     (mapc load-it (directory-files dir nil "\\.el"))))
 
 (load-directory "~/.emacs.d/config")
+

@@ -12,8 +12,11 @@
 (setq auto-save-default nil)
 (setq make-backup-files nil)
 
-(add-to-list 'default-frame-alist '(font . "IBMPlexMono-11"))
-(set-face-attribute 'default t :font "IBMPlexMono-11")
+(add-to-list 'default-frame-alist '(font . "Iosevka-12"))
+(set-face-attribute 'default t :font "Iosevka-12")
+
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
 
 (leaf electric-pair-mod
   :config
@@ -48,21 +51,39 @@
 (leaf doom-themes
   :ensure t
   :config
+  (setq doom-themes-enable-bold t
+	doom-themes-enable-italic t)
+  (setq doom-one-brighter-comments t)
   (load-theme 'doom-gruvbox t)
   (doom-themes-visual-bell-config))
 
-(leaf mood-line
+(leaf smart-mode-line
   :ensure t
   :config
-  (mood-line-mode))
+  (setq sml/theme 'respectful)
+  (setq sml/no-confirm-load-theme t)
+  (sml/setup))
 
-(leaf minions
+(leaf neotree
   :ensure t
+  :bind
+  ("<f1>" . neotree-toggle)
   :config
-  (minions-mode 1))
+  (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
+  (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-quick-look)
+  (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
+  (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
+  (evil-define-key 'normal neotree-mode-map (kbd "g") 'neotree-refresh)
+  (evil-define-key 'normal neotree-mode-map (kbd "n") 'neotree-next-line)
+  (evil-define-key 'normal neotree-mode-map (kbd "p") 'neotree-previous-line)
+  (evil-define-key 'normal neotree-mode-map (kbd "A") 'neotree-stretch-toggle)
+  (evil-define-key 'normal neotree-mode-map (kbd "H") 'neotree-hidden-file-toggle))
 
 (leaf solaire-mode
   :ensure t
+  :hook
+  ((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
+  (minibuffer-setup . solaire-mode-in-minibuffer)
   :config
   (solaire-global-mode +1)
   (solaire-mode-swap-bg))
@@ -90,4 +111,7 @@
   (setq lsp-auto-configure t))
 
 (leaf magit
+  :ensure t)
+
+(leaf evil-magit
   :ensure t)
