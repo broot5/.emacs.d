@@ -107,7 +107,12 @@
   :ensure t
   :after ivy
   :config
-  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-top-center)))
+  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-window-center)))
+  (setq ivy-posframe-parameters
+	'((left-fringe . 10)
+	  (right-fringe . 10)
+	  (height . 20)))
+  (setq ivy-height '20)
   (ivy-posframe-mode 1))
 
 (leaf electric-pair-mod
