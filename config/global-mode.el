@@ -2,8 +2,8 @@
 ;;; Commentary:
 ;; Enssential, Appearance, Addition, LSP contained
 ;;; Code:
-(add-to-list 'default-frame-alist '(font . "Iosevka-12"))
-(set-face-attribute 'default t :font "Iosevka-12")
+(add-to-list 'default-frame-alist '(font . "Iosevka-14"))
+(set-face-attribute 'default t :font "Iosevka-14")
 
 (global-display-line-numbers-mode)
 (global-hl-line-mode t)
@@ -68,7 +68,7 @@
   :config
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
-  (load-theme 'doom-gruvbox t))
+  (load-theme 'doom-oceanic-next t))
 
 (leaf smart-mode-line
   :ensure t
