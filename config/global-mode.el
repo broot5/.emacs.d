@@ -115,6 +115,11 @@
   (setq ivy-height '20)
   (ivy-posframe-mode 1))
 
+(leaf indent-guide
+  :ensure t
+  :config
+  (indent-guide-global-mode))
+
 (leaf electric-pair-mod
   :config
   (electric-pair-mode t))
