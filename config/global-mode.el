@@ -43,7 +43,12 @@
 (leaf counsel
   :ensure t
   :bind
-  ("M-x" . counsel-M-x))
+  ("M-x" . counsel-M-x)
+  ("C-x b" . counsel-switch-buffer)
+  :config
+  (add-to-list 'ivy-initial-inputs-alist '(counsel-M-x . ""))
+  (add-to-list 'ivy-initial-inputs-alist '(counsel-desribe-function . ""))
+  (add-to-list 'ivy-initial-inputs-alist '(counsel-describe-variable . "")))
 
 (leaf company
   :ensure t
@@ -124,6 +129,12 @@
   :config
   (electric-pair-mode t))
 
+(leaf diff-hl
+  :ensure t
+  :config
+  (setq diff-hl-margin-mode t)
+  (global-diff-hl-mode))
+
 (leaf golden-ratio
   :ensure t
   :config
@@ -137,6 +148,9 @@
   :config
   (solaire-global-mode +1)
   (solaire-mode-swap-bg))
+
+(leaf focus
+  :ensure t)
 
 ;; LSP
 (leaf eglot
