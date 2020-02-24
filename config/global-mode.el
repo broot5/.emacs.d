@@ -27,18 +27,16 @@
       mouse-wheel-scroll-amount '(3 ((shift). 1))
       mouse-wheel-progressive-speed nil)
 
-;;(setq tramp-default-method "ssh")
-
 ;; Essential
 (leaf evil
   :ensure t
   :config
-  (evil-mode 1))
+  (evil-mode t))
 
 (leaf ivy
   :ensure t
   :config
-  (ivy-mode 1))
+  (ivy-mode t))
 
 (leaf counsel
   :ensure t
@@ -73,7 +71,7 @@
   :config
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
-  (load-theme 'doom-oceanic-next t))
+  (load-theme 'doom-wilmersdorf t))
 
 (leaf smart-mode-line
   :ensure t
@@ -85,7 +83,7 @@
 (leaf minions
   :ensure t
   :config
-  (minions-mode 1))
+  (minions-mode t))
 
 ;; Addition
 (leaf neotree
@@ -106,19 +104,19 @@
   :ensure t
   :config
   (setcdr (assq t ivy-format-functions-alist) #'ivy-format-function-line)
-  (ivy-rich-mode 1))
+  (ivy-rich-mode t))
 
 (leaf ivy-posframe
   :ensure t
   :after ivy
   :config
-  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-window-center)))
+  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
   (setq ivy-posframe-parameters
 	'((left-fringe . 10)
 	  (right-fringe . 10)
 	  (height . 20)))
   (setq ivy-height '20)
-  (ivy-posframe-mode 1))
+  (ivy-posframe-mode t))
 
 (leaf indent-guide
   :ensure t
@@ -138,7 +136,7 @@
 (leaf golden-ratio
   :ensure t
   :config
-  (golden-ratio-mode 1))
+  (golden-ratio-mode t))
 
 (leaf solaire-mode
   :ensure t
