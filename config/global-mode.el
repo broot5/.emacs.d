@@ -108,7 +108,6 @@
 
 (leaf ivy-posframe
   :ensure t
-  :after ivy
   :config
   (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
   (setq ivy-posframe-parameters

@@ -11,40 +11,17 @@
   :config
   (cmake-ide-setup))
 
-;; (leaf irony
-;;   :ensure t
-;;   :hook
-;;   (c-mode-common-hook . irony-mode))
-
-;; (defun irony-company-backend()
-;;   (add-to-list 'company-backends 'company-irony))
-
-;; (defun irony-flycheck-backend()
-;;   (add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
-
-;; (defun irony-headers-company-backend()
-;;   (add-to-list 'company-backends 'company-irony-c-headers))
-
-;; (leaf company-irony
-;;   :ensure t
-;;   :hook
-;;   (c-mode-common-hook . irony-company-backend))
-
-;; (leaf flycheck-irony
-;;   :ensure t
-;;   :hook
-;;   (c-mode-common-hook . irony-flycheck-backend))
-
-;; (leaf company-irony-c-headers
-;;   :ensure t
-;;   :hook
-;;   (c-mode-common-hook . irony-headers-company-backend))
-
-(with-eval-after-load 'company
+(leaf company
+  :ensure t
+  :after company
+  :config
   (setq company-backends (delete 'company-clang company-backends)))
 
-(with-eval-after-load 'eglot
-  (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
+(leaf eglot
+  :ensure t
+  :after eglot
+  :config
+  (add-to-list 'eglot-server-programs '((c++-mode c-mode) . ("clangd" "--clang-tidy")))
   (add-hook 'c-mode-hook 'eglot-ensure)
   (add-hook 'c++-mode-hook 'eglot-ensure))
 
