@@ -4,7 +4,8 @@
 ;;; Code:
 (leaf cmake-mode
   :ensure t
-  :mode("CMakeLists.txt'" . cmake-mode))
+  :mode
+  ("CMakeLists.txt'" . cmake-mode))
 
 (leaf cmake-ide
   :ensure t
@@ -24,6 +25,12 @@
   (add-to-list 'eglot-server-programs '((c++-mode c-mode) . ("clangd" "--clang-tidy")))
   (add-hook 'c-mode-hook 'eglot-ensure)
   (add-hook 'c++-mode-hook 'eglot-ensure))
+
+
+(leaf modern-cpp-font-lock
+  :ensure t
+  :hook
+  (modern-c++-font-lock-mode . c-mode-common))
 
 (provide 'c-mode-common)
 ;;; c-mode-common.el ends here
