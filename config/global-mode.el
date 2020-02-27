@@ -51,7 +51,7 @@
 (leaf company
   :ensure t
   :config
-  (company-tng-configure-default)
+  ;(company-tng-configure-default)
   (global-company-mode))
 
 (leaf flycheck
@@ -99,6 +99,11 @@
   (evil-define-key 'normal neotree-mode-map (kbd "p") 'neotree-previous-line)
   (evil-define-key 'normal neotree-mode-map (kbd "A") 'neotree-stretch-toggle)
   (evil-define-key 'normal neotree-mode-map (kbd "H") 'neotree-hidden-file-toggle))
+
+(leaf yasnippet
+  :ensure t
+  :config
+  (yas-global-mode t))
 
 (leaf ivy-rich
   :ensure t
