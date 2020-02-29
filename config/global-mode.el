@@ -43,6 +43,7 @@
   :bind
   ("M-x" . counsel-M-x)
   ("C-x b" . counsel-switch-buffer)
+  ("C-c c" . counsel-compile)
   :config
   (add-to-list 'ivy-initial-inputs-alist '(counsel-M-x . ""))
   (add-to-list 'ivy-initial-inputs-alist '(counsel-desribe-function . ""))
@@ -73,17 +74,11 @@
         doom-themes-enable-italic t)
   (load-theme 'doom-wilmersdorf t))
 
-(leaf smart-mode-line
+(leaf doom-modeline
   :ensure t
+  :require all-the-icons ;; M-x all-the-icons-install-fonts
   :config
-  (setq sml/theme 'respectful)
-  (setq sml/no-confirm-load-theme t)
-  (sml/setup))
-
-(leaf minions
-  :ensure t
-  :config
-  (minions-mode t))
+  (doom-modeline-mode t))
 
 ;; Addition
 (leaf neotree
