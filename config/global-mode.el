@@ -100,23 +100,6 @@
   :config
   (yas-global-mode t))
 
-(leaf ivy-rich
-  :ensure t
-  :config
-  (setcdr (assq t ivy-format-functions-alist) #'ivy-format-function-line)
-  (ivy-rich-mode t))
-
-(leaf ivy-posframe
-  :ensure t
-  :config
-  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
-  (setq ivy-posframe-parameters
-	'((left-fringe . 10)
-	  (right-fringe . 10)
-	  (height . 20)))
-  (setq ivy-height '20)
-  (ivy-posframe-mode t))
-
 (leaf indent-guide
   :ensure t
   :config
