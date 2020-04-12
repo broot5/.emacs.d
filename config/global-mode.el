@@ -36,6 +36,8 @@
 (leaf ivy
   :ensure t
   :config
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t)
   (ivy-mode t))
 
 (leaf counsel
@@ -45,14 +47,18 @@
   ("C-x b" . counsel-switch-buffer)
   ("C-c c" . counsel-compile)
   :config
-  (add-to-list 'ivy-initial-inputs-alist '(counsel-M-x . ""))
-  (add-to-list 'ivy-initial-inputs-alist '(counsel-desribe-function . ""))
-  (add-to-list 'ivy-initial-inputs-alist '(counsel-describe-variable . "")))
+  (setq ivy-initial-inputs-alist nil))
+
+(leaf swiper
+  :ensure t
+  :bind
+  ("C-s" . swiper-isearch))
 
 (leaf company
   :ensure t
   :config
-  ;(company-tng-configure-default)
+  (setq company-idle-delay 0)
+  (setq company-show-numbers t)
   (global-company-mode))
 
 (leaf flycheck
@@ -72,7 +78,7 @@
   :config
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
-  (load-theme 'doom-wilmersdorf t))
+  (load-theme 'doom-monokai-pro t))
 
 (leaf doom-modeline
   :ensure t
