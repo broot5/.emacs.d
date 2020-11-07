@@ -1,12 +1,11 @@
 ;;; rust-mode.el --- rust mode config
 ;;; Commentary:
-;; rustic, lsp setting contained
+;; rustic, LSP contained
 ;;; Code:
-(leaf rustic
-  :ensure t
-  :config
-  (setq rustic-lsp-server 'rust-analyzer)
-  (setq rustic-lsp-client 'eglot))
+(leaf rustic)
+
+(leaf lsp-mode
+  :hook (rust-mode . lsp))
 
 (provide 'rust-mode)
-;;; rust-mode ends here
+;;; rust-mode.el ends here
